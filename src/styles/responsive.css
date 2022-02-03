@@ -1,0 +1,22 @@
+@media (min-width: 320px) and (max-width: 480px) {
+    .modal {
+        width: calc(90%, 400px);
+    }
+
+    form {
+        margin: auto;
+        overflow-x: hidden;
+    }
+}
+
+@media (min-width: 768px) {
+    html {
+        font-size: 87.5%;
+    }
+
+    #balance {
+        display: grid;
+        grid-template-columns: repeat(3, 1fr);
+        gap: 2rem;
+    }
+}
