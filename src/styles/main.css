@@ -3,6 +3,9 @@
 /* =============== Global ==================  */
 :root {
     --h2-dark-color: #363F5F;
+    --a-dark-color: #49AA26;
+    --a-light-color: #3DD705;
+    --warning-color: #E92929;
 }
 
 * {
@@ -11,6 +14,9 @@
     box-sizing: border-box;
 }
 
+html {
+    font-size: 93.75%;
+}
 body {
     background: #F0F2F5;
     font-family: 'Poppins', sans-serif;
@@ -19,6 +25,18 @@ body {
 .container {
     margin: auto;
     width: min(90vw, 800px);
+}
+
+.sr__only {
+    position: absolute;
+    width: 1px;
+    height: 1px;
+    padding: 0;
+    margin: -1px;
+    overflow: hidden;
+    clip: rect(0, 0, 0, 0);
+    white-space: nowrap;
+    border-width: 0;
 }
 
 /* =============== Titles ==================  */
@@ -60,8 +78,11 @@ header {
 }
 
 .card h3 {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    font-size: 1rem;
     font-weight: normal;
-    font-size: 1rem
 }
 
 .card p {
@@ -76,10 +97,17 @@ header {
 }
 
 /* =============== Table ==================  */
-#data__table {
+#transaction {
+    display: block;
+    overflow-x: auto;
     width: 100%;
-    border-spacing: 0 0.5rem;
+}
+
+#data__table {
     color: #969CB3;
+    border-spacing: 0 0.5rem;
+    width: 100%;
+
 }
 
 table thead tr th:first-child,
@@ -87,6 +115,11 @@ table tbody tr td:first-child {
     border-radius: 0.25rem 0 0 0.25rem;
     padding: 1rem 2rem;
     font-weight: normal;
+}
+
+table thead tr th:last-child,
+table tbody tr td:last-child {
+    border-radius: 0 0.25rem 0.25rem 0;
 }
 
 table thead th {
