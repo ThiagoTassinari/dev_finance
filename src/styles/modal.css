@@ -1,0 +1,115 @@
+.modal__overlay {
+    background: rgba(0, 0, 0, 0.7);
+    display: flex;
+    align-items: center;
+    justify-content: center; 
+    position: fixed;
+    top: 0;
+    opacity: 0;
+    visibility: hidden;
+
+    height: 100%;
+    width: 100%;
+    z-index: 1000;
+}
+
+.modal__overlay.active {
+    opacity: 1;
+    visibility: visible;
+}
+
+.modal {
+    background: #F0F2F5;
+    padding: 2.4rem;
+    
+    position: relative;
+    z-index: 1;
+}
+
+/* ============== Form ============= */
+#form {
+    max-width: 500px;
+}
+
+#form h2 {
+    margin-top: 0;
+}
+
+input {
+    border: none;
+    border-radius: 0.2rem;
+
+    padding: 0.8rem;
+    width: 100%;
+}
+
+.input__group {
+    margin-top: 0.8rem;
+}
+
+.input__group small {
+    opacity: 0.4;
+}
+
+.input__group.actions {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.input__group.actions .button,
+.input__group.actions button {
+   width: 48%; 
+}
+
+.input__group {
+    margin-top: 0.8rem;
+}
+
+/* =============== Links && Buttons ==================  */
+a {
+    color: var(--a-dark-color);
+    text-decoration: none;
+}
+
+a:hover {
+    color: var(--a-light-color);   
+}
+
+button {
+    background: var(--a-dark-color);
+    border: none;
+    border-radius: 0.25rem;
+    color: white;
+    cursor: pointer;
+
+    height: 50px;
+    padding: 0;
+    width: 100%;
+}
+
+button:hover {
+    background: var(--a-light-color);
+}
+
+.button.new {
+    display: inline-block;
+    margin-bottom: .8rem;
+}
+
+.button.cancel {
+    border: 2px var(--warning-color) solid;
+    color: var(--warning-color);
+    border-radius: 0.25rem;
+    
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    height: 50px;
+
+    opacity: 0.6;
+}
+
+.button.cancel:hover {
+    opacity: 1;
+}
