@@ -169,6 +169,9 @@ const Form = {
             
             // Guarda os valores dos dados preenchidos nos campos de input
             const transaction = Form.formatValues();
+
+            // Salvar valores dos campos de input preenchidos
+            Transaction.add(transaction);
             
         } catch (error) {
             alert(error.message);
