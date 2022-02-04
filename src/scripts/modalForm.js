@@ -170,17 +170,11 @@ const Form = {
         event.preventDefault();
 
         try {
-            // Verifica os campos de input do formulário
-            Form.validateFields();
-            
-            // Guarda os valores dos dados preenchidos nos campos de input
-            const transaction = Form.formatValues();
+            Form.validateFields(); // Verifica os campos de input do formulário
+            const transaction = Form.formatValues(); // Guarda os valores dos dados preenchidos nos campos de input
+            Transaction.add(transaction); // Salvar valores dos campos de input preenchidos
+            Form.clearFields(); // Limpar o formulário após salvo
 
-            // Salvar valores dos campos de input preenchidos
-            Transaction.add(transaction);
-
-            // Limpar o formulário após salvo
-            clearFields();
         } catch (error) {
             alert(error.message);
         }
