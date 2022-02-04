@@ -160,6 +160,12 @@ const Form = {
         }
     },
 
+    clearFields() {
+        Form.description.value = "";
+        Form.amount.value = "";
+        Form.date.value = "";
+    },
+
     submit(event) {
         event.preventDefault();
 
@@ -172,7 +178,9 @@ const Form = {
 
             // Salvar valores dos campos de input preenchidos
             Transaction.add(transaction);
-            
+
+            // Limpar o formulário após salvo
+            clearFields();
         } catch (error) {
             alert(error.message);
         }
