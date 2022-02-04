@@ -99,6 +99,18 @@ const DOM = {
 }
 
 const Utils = {
+    formatAmount(value) {
+        value = Number(value) * 100;
+
+        return value;
+    },
+
+    formatDate(date) {
+        const splittedDate = date.split("-");
+        
+        return `${splittedDate[2]}/${splittedDate[1]}/${splittedDate[0]}`;  
+    },
+
     formatCurrency(value) {
         const signal = Number(value) < 0 ? '-' : ''
         
@@ -134,11 +146,30 @@ const Form = {
         }
     },
 
+    formatValues() {
+        let { description, amount, date } = Form.getValues();
+        
+        amount = Utils.formatAmount(amount);
+
+        date = Utils.formatDate(date);
+
+        return {
+            description,
+            amount,
+            date
+        }
+    },
+
     submit(event) {
         event.preventDefault();
 
         try {
+            // Verifica os campos de input do formulário
             Form.validateFields();
+            
+            // Guarda os valores dos dados preenchidos nos campos de input
+            const transaction = Form.formatValues();
+            
         } catch (error) {
             alert(error.message);
         }
