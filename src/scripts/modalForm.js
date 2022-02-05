@@ -100,7 +100,8 @@ const DOM = {
 
 const Utils = {
     formatAmount(value) {
-        value = Number(value) * 100;
+        value = Number(value.replace(/\,\./g, "")) * 100; // Option I
+        // value = Number(value) * 100; Option II
 
         return value;
     },
@@ -173,8 +174,8 @@ const Form = {
             Form.validateFields(); // Verifica os campos de input do formulário
             const transaction = Form.formatValues(); // Guarda os valores dos dados preenchidos nos campos de input
             Transaction.add(transaction); // Salvar valores dos campos de input preenchidos
-            Form.clearFields(); // Limpar o formulário após salvo
-
+            Form.clearFields(); // Limpar o formulário após o submit dos dados
+            modalNewTransaction(); // Fechar o Formulário após feito o submit dos dados
         } catch (error) {
             alert(error.message);
         }
