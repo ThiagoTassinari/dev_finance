@@ -58,7 +58,7 @@ const DOM = {
 
     addTransaction(transaction, index) {
         const tr = document.createElement('tr');
-        tr.innerHTML = DOM.innerHTMLTransaction(transaction);
+        tr.innerHTML = DOM.innerHTMLTransaction(transaction, index);
         tr.dataset.index = index;
 
         DOM.transactionsContainer.appendChild(tr)
@@ -91,10 +91,8 @@ const DOM = {
 
 const Utils = {
     formatAmount(value) {
-        value = Number(value.replace(/\,\./g, "")) * 100; // Option I
-        // value = Number(value) * 100; Option II
-
-        return value;
+        value = value * 100;
+        return Math.round(value);
     },
 
     formatDate(date) {
