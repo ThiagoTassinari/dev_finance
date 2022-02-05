@@ -47,7 +47,7 @@ input {
     margin-top: 0.8rem;
 }
 
-.input__group small {
+.input__group .help {
     opacity: 0.4;
 }
 
