@@ -3,29 +3,18 @@ function modalNewTransaction() {
     modal.classList.toggle('active');
 }
 
+const LocalStorage = {
+    get() {
+        return JSON.parse(localStorage.getItem("key:transactions")) || []
+    },
+
+    set(transactions) {
+        localStorage.setItem("key:transactions", JSON.stringify(transactions));
+    }
+}
+
 const Transaction = {
-    all: [
-        {
-        description: 'Luz',
-        amount: -50000,
-        date: '03/02/2022',
-        }, 
-        {
-            description: 'Website',
-            amount: 500000,
-            date: '03/02/2022',
-        }, 
-        {
-            description: 'Internet',
-            amount: -20000,
-            date: '03/02/2022',
-        },
-        {
-            description: 'App',
-            amount: 20000,
-            date: '03/02/2022',
-        },
-    ],
+    all: LocalStorage.get(),
 
     add(transaction) {
         Transaction.all.push(transaction);
@@ -186,8 +175,11 @@ const Form = {
 
 const App = {
     init() {
-        Transaction.all.forEach(DOM.addTransaction);
-        DOM.updateBalance();
+        Transaction.all.forEach(DOM.addTransaction);  // Atualizando as novas transações salvas
+        
+        DOM.updateBalance();    // Atualizando os cards
+        
+        LocalStorage.set(Transaction.all); // Atualizando aonde pega os dados
     },
 
     reload() {
